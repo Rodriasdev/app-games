@@ -1,6 +1,22 @@
 import { StyleSheet, View,TextInput, Button } from 'react-native';
+import { useEffect, useState } from 'react';
 
 export default function HomeScreen() {
+  const [gameState,setGameState] = useState<Array<object>>([])
+
+  useEffect(() => {
+    (
+      async () => {
+        const response = await fetch('https://www.freetogame.com/api/games')
+
+        const data = await response.json()
+        
+        setGameState(data)
+      }
+    )()
+  },[])
+
+
   return (
     <View style={styles.container}>
       <View style={styles.buscador}>
