@@ -1,8 +1,12 @@
-import { StyleSheet, View,TextInput, Button } from 'react-native';
+import { StyleSheet, View,TextInput, Button,Text,FlatList } from 'react-native';
 import { useEffect, useState } from 'react';
 
+interface game {
+  title:string
+}
+
 export default function HomeScreen() {
-  const [gameState,setGameState] = useState<Array<object>>([])
+  const [gameState,setGameState] = useState<Array<game>>([])
 
   useEffect(() => {
     (
@@ -25,6 +29,14 @@ export default function HomeScreen() {
           <Button title='Buscar'/>
         </View>
       </View>
+      <FlatList
+          data={gameState}
+          renderItem={({item,index}) => {
+            return (
+                <Text>{item.title}</Text>
+            )
+          }}
+      />
     </View>
   );
 }
