@@ -33,7 +33,7 @@ export default function HomeScreen() {
           data={gameState}
           renderItem={({item,index}) => {
             return (
-                <Text>{item.title}</Text>
+                <Text key={index} style={styles.text}>{item.title}</Text>
             )
           }}
       />
@@ -62,5 +62,8 @@ const styles = StyleSheet.create({
   },
   buscador: {
     flexDirection: 'row'
+  },
+  text: {
+    marginStart: 15
   }
 });
