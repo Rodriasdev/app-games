@@ -6,6 +6,7 @@ import { StatusBar } from 'react-native';
 
 
 export interface GameFind {
+  id:string
   title:string
   thumbnail: string
 }

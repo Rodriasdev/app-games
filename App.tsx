@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen  name="GameList" component={Games} options={{headerShown:false}}/>
+        <Stack.Screen name="GameList" component={Games} options={{headerShown:false}}/>
         <Stack.Screen name="GameInfo" component={GameInfo}/>
       </Stack.Navigator>
     </NavigationContainer>
