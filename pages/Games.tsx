@@ -1,6 +1,7 @@
-import { StyleSheet, View,TextInput, Button,Text,FlatList } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { GameSearch } from '../components/GameSearch';
+import { GameList } from '../components/GameList';
 
 interface game {
   title:string
@@ -25,14 +26,7 @@ export function Games() {
   return (
     <View style={styles.container}>
       <GameSearch/>
-      <FlatList
-          data={gameState}
-          renderItem={({item,index}) => {
-            return (
-                <Text key={index} style={styles.text}>{item.title}</Text>
-            )
-          }}
-      />
+      <GameList gameState={gameState}/>
     </View>
   );
 }
