@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react';
 import { GameSearch } from '../components/GameSearch';
 import { GameList } from '../components/GameList';
 
-interface game {
+export interface GameFind {
   title:string
+  thumbnail: string
 }
 
 export function Games() {
-  const [gameState,setGameState] = useState<Array<game>>([])
+  const [gameState,setGameState] = useState<Array<GameFind>>([])
 
   useEffect(() => {
     (
