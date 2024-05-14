@@ -14,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="GameList" component={Games} options={{headerShown:false}}/>
-        <Stack.Screen name="GameInfo" component={GameInfo}/>
+        <Stack.Screen name="GameInfo" component={GameInfo} options={{headerTitle:'Information of the Game'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

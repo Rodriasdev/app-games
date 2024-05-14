@@ -2,17 +2,10 @@ import { StyleSheet, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { GameSearch } from '../components/GameSearch';
 import { GameList } from '../components/GameList';
-import { StatusBar } from 'react-native';
-
-
-export interface GameFind {
-  id:string
-  title:string
-  thumbnail: string
-}
+import { GameFindDto } from '../types/GameFind.dto';
 
 export function Games() {
-  const [gameState,setGameState] = useState<Array<GameFind>>([])
+  const [gameState,setGameState] = useState<Array<GameFindDto>>([])
 
   useEffect(() => {
     (
@@ -37,6 +30,6 @@ export function Games() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10
+    marginTop: 30
   }
 });
