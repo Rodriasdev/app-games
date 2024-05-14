@@ -1,11 +1,12 @@
 import { StyleSheet, View,TextInput, Button,Text,FlatList } from 'react-native';
 import { useEffect, useState } from 'react';
+import { GameSearch } from '../components/GameSearch';
 
 interface game {
   title:string
 }
 
-export function ListGames() {
+export function Games() {
   const [gameState,setGameState] = useState<Array<game>>([])
 
   useEffect(() => {
@@ -23,12 +24,7 @@ export function ListGames() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buscador}>
-        <TextInput style={styles.textInput} placeholder='Escribe un juego'/>
-        <View style={styles.button}>
-          <Button title='Buscar'/>
-        </View>
-      </View>
+      <GameSearch/>
       <FlatList
           data={gameState}
           renderItem={({item,index}) => {
