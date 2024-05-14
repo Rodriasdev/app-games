@@ -6,8 +6,8 @@ export const GameList = ({gameState}:any) => {
             data={gameState}
             renderItem={({item,index}) => {
             return (
-                <View>
-                    <Image source={{uri: item.thumbnail}} style={{width: 450, height: 200}}/>
+                <View style={styles.container}>
+                    <Image source={{uri: item.thumbnail}} style={styles.image}/>
                      <Text key={index} style={styles.text}>{item.title}</Text>
                 </View>
             )
@@ -17,7 +17,16 @@ export const GameList = ({gameState}:any) => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginVertical:20
+    },
     text: {
-        marginStart: 15
-      }
+        alignSelf:'center',
+        fontSize:20
+      },
+    image: {
+        width:450,
+        height:200,
+        borderRadius:10
+    }
 })
