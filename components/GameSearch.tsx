@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native"
 import { View,TextInput,Button } from "react-native";
+import { ScaledSheet } from "react-native-size-matters";
+
 
 export const GameSearch = () => {
     return(
@@ -13,7 +14,7 @@ export const GameSearch = () => {
 }
 
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     textInput: {
       borderRadius: 5,
       borderWidth: 1,
@@ -21,11 +22,11 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20,
       paddingVertical: 10,
       marginBottom: 10,
-      width: 300,
+      width: '200@ms',
       marginStart: 15
     },
     button: {
-      width: 100,
+      width: '100@ms',
       marginStart: 20,
       marginTop: 8
     },

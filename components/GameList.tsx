@@ -3,7 +3,7 @@ import React from "react";
 import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { GameFindDto } from "../types/GameFind.dto";
 import { GameListNavigationProp } from "../types/Params";
-
+import { ScaledSheet } from "react-native-size-matters";
 
 interface Props {
     gameState: GameFindDto[];
@@ -33,7 +33,7 @@ export const GameList: React.FC<Props> = ({ gameState }) => {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         marginVertical: 20,
         alignItems: 'center',
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     image: {
-        width: 300,
-        height: 200,
+        width: '350@ms',
+        height: '200@mvs0.3',
         borderRadius: 10,
     },
 });
