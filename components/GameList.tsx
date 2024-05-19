@@ -2,6 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { GameFindDto } from "../types/GameFind.dto";
+import { GameListNavigationProp } from "../types/Params";
+
 
 interface Props {
     gameState: GameFindDto[];
@@ -9,18 +11,19 @@ interface Props {
 
 export const GameList: React.FC<Props> = ({ gameState }) => {
 
-    const navigation = useNavigation()
+    const navigation = useNavigation<GameListNavigationProp>();
 
-    const handleGamePress = (game: object) => {
-        navigation.navigate("GameInfo", {gameId:game.id})
+    const handleGamePress = (game: GameFindDto) => {
+        navigation.navigate("GameInfo", { gameId: game.id });
     };
 
     return (
         <FlatList
             data={gameState}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => handleGamePress(item)}>
-                    <View style={styles.container} key={item.id}>
+                <TouchableOpacity onPress={() => handleGamePress(item)} key={item.id}>
+                    <View style={styles.container}>
                         <Image source={{ uri: item.thumbnail }} style={styles.image} />
                         <Text style={styles.text}>{item.title}</Text>
                     </View>
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     image: {
-        width: '100%',
+        width: 300,
         height: 200,
         borderRadius: 10,
     },

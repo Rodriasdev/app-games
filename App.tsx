@@ -2,8 +2,9 @@ import { Games } from "./pages/Games";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { GameInfo } from "./pages/GameInfo";
+import { RootStackParamList } from "./types/Params";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 
 export default function App() {

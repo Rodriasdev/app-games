@@ -1,10 +1,10 @@
 import { useRoute } from "@react-navigation/native"
-import { GameFindDto } from "../types/GameFind.dto"
 import { View,Text } from "react-native"
+import { GameInfoRouteProp } from "../types/Params"
 
 export const GameInfo = () => {
-    const {gameId}:string = useRoute().params
-
+    const route = useRoute<GameInfoRouteProp>()
+    const {gameId}= route.params
     
     return(
         <View>
