@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { FlatList, Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
 import { GameFindDto } from "../types/GameFind.dto";
 import { GameListNavigationProp } from "../types/Params";
 import { ScaledSheet } from "react-native-size-matters";

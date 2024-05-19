@@ -22,7 +22,7 @@ export function Games() {
 
   return (
     <View style={styles.container}>
-      <GameSearch/>
+      <GameSearch gameState={gameState} setGameState={setGameState}/>
       <GameList gameState={gameState}/>
     </View>
   );
