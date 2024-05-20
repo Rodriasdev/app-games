@@ -5,15 +5,19 @@ import React from "react";
 import { useState } from "react";
 
 interface Props {
-  searchGame: (value:string) =>void
-  gameState: GameFindDto[]
+  searchGame: (value:string) =>void;
+  oldData: GameFindDto[];
+  setGameState: React.Dispatch<React.SetStateAction<GameFindDto[]>>
 }
 
-export const GameSearch: React.FC<Props> = ({gameState,searchGame}) => {
+export const GameSearch: React.FC<Props> = ({searchGame, oldData,setGameState}) => {
   const [newGameState,setNewGameState] = useState<string>('')  
 
   const handleText = (name:string):void =>  {
     setNewGameState(name)
+    if(name.length < 1) {
+      setGameState(oldData)
+    }
   }
 
 

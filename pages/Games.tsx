@@ -6,6 +6,7 @@ import { GameFindDto } from '../types/GameFind.dto';
 
 export function Games() {
   const [gameState,setGameState] = useState<Array<GameFindDto>>([])
+  const [oldData, setOldData] = useState<Array<GameFindDto>>([])
 
   useEffect(() => {
     (
@@ -15,6 +16,7 @@ export function Games() {
         const data = await response.json()
         
         setGameState(data)
+        setOldData(data)
       }
     )()
   },[])
@@ -28,7 +30,7 @@ export function Games() {
 
   return (
     <View style={styles.container}>
-      <GameSearch gameState={gameState} searchGame={searchGame}/>
+      <GameSearch searchGame={searchGame}  oldData={oldData} setGameState={setGameState}/>
       <GameList gameState={gameState}/>
     </View>
   );
