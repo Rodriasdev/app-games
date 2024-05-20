@@ -2,20 +2,28 @@ import { View,TextInput,Button } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 import { GameFindDto } from "../types/GameFind.dto";
 import React from "react";
+import { useState } from "react";
 
 interface Props {
- setGameState: React.Dispatch<React.SetStateAction<GameFindDto[]>>,
+  searchGame: (value:string) =>void
   gameState: GameFindDto[]
 }
 
-export const GameSearch: React.FC<Props> = ({gameState,setGameState}) => {
-    return(
-        <View style={styles.buscador}>
-            <TextInput style={styles.textInput} placeholder='Escribe un juego'/>
-            <View style={styles.button}>
-            <Button title='Buscar'/>
-            </View>
-        </View>
+export const GameSearch: React.FC<Props> = ({gameState,searchGame}) => {
+  const [newGameState,setNewGameState] = useState<string>('')  
+
+  const handleText = (name:string):void =>  {
+    setNewGameState(name)
+  }
+
+
+  return(
+      <View style={styles.buscador}>
+          <TextInput onChangeText={handleText} style={styles.textInput} placeholder='Escribe un juego'/>
+          <View style={styles.button}>
+          <Button onPress={() => searchGame(newGameState)} title='Buscar'/>
+          </View>
+      </View>
     )
 }
 

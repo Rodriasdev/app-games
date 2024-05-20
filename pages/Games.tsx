@@ -19,10 +19,16 @@ export function Games() {
     )()
   },[])
 
+  const searchGame = (title:string):void => { 
+    const data = gameState.filter(game => game.title.toLocaleLowerCase() == title.toLocaleLowerCase())
+
+    setGameState(data)
+  }
+
 
   return (
     <View style={styles.container}>
-      <GameSearch gameState={gameState} setGameState={setGameState}/>
+      <GameSearch gameState={gameState} searchGame={searchGame}/>
       <GameList gameState={gameState}/>
     </View>
   );
