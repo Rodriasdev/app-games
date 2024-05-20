@@ -14,7 +14,7 @@ export const GameList: React.FC<Props> = ({ gameState }) => {
     const navigation = useNavigation<GameListNavigationProp>();
 
     const handleGamePress = (game: GameFindDto) => {
-        navigation.navigate("GameInfo", { gameId: game.id });
+        navigation.navigate("GameInfo", { game: game });
     };
 
     return (
